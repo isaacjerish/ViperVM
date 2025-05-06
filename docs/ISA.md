@@ -58,7 +58,7 @@ All instructions begin with a **1-byte opcode**. Additional bytes depend on the 
 ---
 
 ### 4. `CMP R1, R2`  
-- **Opcode**: `0x05`  
+- **Opcode**: `0x04`  
 - **Format**: `[0x05][reg1][reg2]`  
 - **Size**: 3 bytes  
 - **Description**: Compares values in `reg1` and `reg2`.  
@@ -70,7 +70,7 @@ All instructions begin with a **1-byte opcode**. Additional bytes depend on the 
 ---
 
 ### 5. `JE ADDR` (Jump if Equal)  
-- **Opcode**: `0x06`  
+- **Opcode**: `0x05`  
 - **Format**: `[0x06][addr_hi][addr_lo]`  
 - **Size**: 3 bytes  
 - **Description**: If Zero Flag is set, jump to the absolute address.

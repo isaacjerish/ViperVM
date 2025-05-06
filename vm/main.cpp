@@ -26,27 +26,47 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     load_file(argv[1]);
-    while (true) {
-        //Fetch
+    bool running = true;
+    while (running) {
+        uint8_t arg1;
+        uint8_t arg2;
+        bool zero_flag = false;
         cir = memory[pc++];
-        //Decode
+        //Decode + Execute
         switch (cir) {
             case (0x01):
-                uint8_t reg_count = memory[pc++];
-                uint8_t val = memory[pc++];
+                arg1 = memory[pc++];
+                arg2 = memory[pc++];
+                registers[arg1] = arg2;
                 break;
             case (0x02):
-            break;
+                arg1 = memory[pc++];
+                arg2 = memory[pc++];
+                registers[arg1] += registers[arg2];
+                break;
             case (0x03):
-            break;
+                arg1 = memory[pc++];
+                arg2 = memory[pc++];
+                registers[arg1] -= registers[arg2];
+                break;
             case (0x04):
-            break;
+                arg1 = memory[pc++];
+                arg2 = memory[pc++];
+                (registers[arg1] == registers[arg2]) ? (zero_flag = true) : (zero_flag = false);
+                break;
             case (0x05):
-            break;
-            case (0x06):
-            break;
+                arg1 = memory[pc++];
+                arg2 = memory[pc++];
+                if (zero_flag){
+                    pc = (arg1 << 8) + arg2;
+                }
+                else {
+                    pc++;
+                }
+                break;
             case(0xFF):
-            break;
+                running = false;
+                break;
             default:
                 printf("Error when decoding. The fetched opcode was %u", cir);
         }
