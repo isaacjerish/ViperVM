@@ -5,8 +5,6 @@ uint8_t memory[1024];
 uint8_t registers[8];
 uint16_t pc = 0;
 uint16_t cir = 0;
-uint16_t mdr = 0;
-uint16_t mar = 0;
 uint16_t size = 0;
 bool load_file(const std::string& filename) {
     std::ifstream in(filename, std::ios::binary);
@@ -29,13 +27,29 @@ int main(int argc, char* argv[]) {
     }
     load_file(argv[1]);
     while (true) {
-        // Fetch
-            //Load the opcode and other values based on the current location of the PC
-            // 
-            // Increment the PC
-        // Decode 
-            // Load arguments and get ready for the registers
-        //Execute
-            // ACtually execute the instruction based on the opcode (if else statements) and 
+        //Fetch
+        cir = memory[pc++];
+        //Decode
+        switch (cir) {
+            case (0x01):
+                uint8_t reg_count = memory[pc++];
+                uint8_t val = memory[pc++];
+                break;
+            case (0x02):
+            break;
+            case (0x03):
+            break;
+            case (0x04):
+            break;
+            case (0x05):
+            break;
+            case (0x06):
+            break;
+            case(0xFF):
+            break;
+            default:
+                printf("Error when decoding. The fetched opcode was %u", cir);
+        }
+        
     }
 }
