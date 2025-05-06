@@ -4,6 +4,9 @@
 uint8_t memory[1024];
 uint8_t registers[8];
 uint16_t pc = 0;
+uint16_t cir = 0;
+uint16_t mdr = 0;
+uint16_t mar = 0;
 uint16_t size = 0;
 bool load_file(const std::string& filename) {
     std::ifstream in(filename, std::ios::binary);
@@ -25,4 +28,14 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     load_file(argv[1]);
+    while (true) {
+        // Fetch
+            //Load the opcode and other values based on the current location of the PC
+            // 
+            // Increment the PC
+        // Decode 
+            // Load arguments and get ready for the registers
+        //Execute
+            // ACtually execute the instruction based on the opcode (if else statements) and 
+    }
 }
