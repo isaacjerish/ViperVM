@@ -27,10 +27,13 @@ int main(int argc, char* argv[]) {
     }
     load_file(argv[1]);
     bool running = true;
+    bool zero_flag = false;
     while (running) {
+        if (pc >= size) {
+            break;
+        }
         uint8_t arg1;
         uint8_t arg2;
-        bool zero_flag = false;
         cir = memory[pc++];
         //Decode + Execute
         switch (cir) {
@@ -59,9 +62,6 @@ int main(int argc, char* argv[]) {
                 arg2 = memory[pc++];
                 if (zero_flag){
                     pc = (arg1 << 8) + arg2;
-                }
-                else {
-                    pc++;
                 }
                 break;
             case(0xFF):
