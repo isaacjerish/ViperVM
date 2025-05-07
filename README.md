@@ -23,3 +23,16 @@ vipervm/
 ├── docs/         # ISA reference, bytecode format, etc.
 ├── Makefile
 └── README.md
+
+Running TODO List ✅
+	•	✅ Basic memory and register setup (uint8_t memory[1024], registers[8])
+	•	✅ Implemented load_file() to read binary file into memory
+	•	✅ Built FDE loop in main() using switch-case
+	•	✅ Implemented MOV, ADD, SUB, CMP, JZ, and HALT instructions
+	•	✅ Zero flag added and functioning with conditional jumps
+	•	✅ Verified instruction decoding and program counter updates
+Coming Next
+	•	☐ Add support for memory access instructions (LOAD, STORE)
+	•	☐ Create an assembler or helper script to write .bin files easily
+	•	☐ Implement a debugging mode to inspect register/memory state
+	•	☐ Add unit tests or example programs
