@@ -31,8 +31,8 @@ Running TODO List ✅
 	•	✅ Implemented MOV, ADD, SUB, CMP, JZ, and HALT instructions
 	•	✅ Zero flag added and functioning with conditional jumps
 	•	✅ Verified instruction decoding and program counter updates
+	•	✅ Create an assembler or helper script to write .bin files easily
 Coming Next
 	•	☐ Add support for memory access instructions (LOAD, STORE)
-	•	☐ Create an assembler or helper script to write .bin files easily
 	•	☐ Implement a debugging mode to inspect register/memory state
 	•	☐ Add unit tests or example programs
