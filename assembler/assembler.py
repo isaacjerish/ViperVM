@@ -61,4 +61,12 @@ for token in tokens:
         print(
             "Error in logic for deciding what part of the instruction should be operated upon."
         )
-print(bin_vals)
+count = 0
+with open("/Users/isaacjerish/Documents/ViperVM/vm/test.bin", "w") as f:
+    for bin_val in bin_vals:
+        if count < 2:
+            f.write(bin_val + " ")
+            count += 1
+        elif count == 2:
+            f.write(bin_val + "\n")
+            count = 0
