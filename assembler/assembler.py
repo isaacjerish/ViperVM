@@ -35,17 +35,30 @@ count = 0
 for token in tokens:
     if count == 0:
         if token in OPCODE_TABLE:
-            pass
+            bin_vals.append(hex(OPCODE_TABLE[token]))
+            count += 1
         else:
             print(f"Unidentified opcode {token}")
+            break
     elif count == 1:
         if token in REGISTER_TABLE:
-            pass
+            bin_vals.append(hex(REGISTER_TABLE[token]))
+            count += 1
         else:
             print(f"Unidentified register {token}")
+            break
     elif count == 2:
-        pass
+        if token in REGISTER_TABLE:
+            bin_vals.append(hex(REGISTER_TABLE[token]))
+            count = 0
+        elif str(token).isnumeric():
+            bin_vals.append(hex(int(token)))
+            count = 0
+        else:
+            print(f"Error with arg 2 parsing. Registered token was {token}")
+            break
     else:
         print(
             "Error in logic for deciding what part of the instruction should be operated upon."
         )
+print(bin_vals)
