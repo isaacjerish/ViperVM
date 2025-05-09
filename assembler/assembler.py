@@ -20,8 +20,13 @@ REGISTER_TABLE = {
     "R6": 0x06,
     "R7": 0x07,
 }
+vals = []
+tokens = []
 with open("/Users/isaacjerish/Documents/ViperVM/programs/test.asm", "r") as f:
     lines = f.readlines()
     for line in lines:
-        
-    print(lines)
+        vals.append(line.strip().replace(",", "").split(" "))
+    for token_list in vals:
+        for token in token_list:
+            tokens.append(token)
+    print(tokens)
