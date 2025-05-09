@@ -30,3 +30,22 @@ with open("/Users/isaacjerish/Documents/ViperVM/programs/test.asm", "r") as f:
         for token in token_list:
             tokens.append(token)
     print(tokens)
+bin_vals = []
+count = 0
+for token in tokens:
+    if count == 0:
+        if token in OPCODE_TABLE:
+            pass
+        else:
+            print(f"Unidentified opcode {token}")
+    elif count == 1:
+        if token in REGISTER_TABLE:
+            pass
+        else:
+            print(f"Unidentified register {token}")
+    elif count == 2:
+        pass
+    else:
+        print(
+            "Error in logic for deciding what part of the instruction should be operated upon."
+        )
