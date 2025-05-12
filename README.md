@@ -1,5 +1,7 @@
 # ViperVM
 
+**Work in Progress** This project is currently under development and has the current functionality: successfully taking assembly code to byte code, and runnning some byte code commands using the VM (still working on debugging)
+
 **ViperVM** is a custom-built virtual machine written in C++ with its own assembly language and assembler. It simulates a basic CPU, executes binary machine code, and supports a hand-crafted instruction set.
 
 ---
